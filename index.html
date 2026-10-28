@@ -4,86 +4,98 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Щенок: первый месяц — гайд и чек-лист</title>
-<meta name="description" content="Гайд «Первые 30 дней со щенком» и бесплатный чек-лист первой недели. Материалы для тех, кто забирает щенка домой.">
+<meta name="description" content="Гайд «Первые 30 дней со щенком» на 20 страниц и бесплатный чек-лист первой недели. Режим, корм, сон, туалет, прививки — по дням.">
 <style>
-  :root { --dark:#23292E; --terra:#B4613C; --paper:#F6F1EA; --line:#E3D8C9; }
+  :root {
+    --dark:#14181C; --card:#1A1F24; --accent:#C67A4A;
+    --text:#F3EDE5; --muted:#B0A69A; --line:#3E444A;
+  }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--paper); color:var(--dark);
+  body { margin:0; background:var(--dark); color:var(--text);
          font-family:Georgia,"Times New Roman",serif; line-height:1.55; }
-  .wrap { max-width:760px; margin:0 auto; padding:28px 18px 56px; }
-  .brand { font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--terra); }
-  h1 { font-size:30px; line-height:1.2; margin:10px 0 6px; }
-  .sub { font-size:17px; color:#4c5359; margin:0 0 26px; }
-  h2 { font-size:20px; margin:0 0 14px; }
-  .card { background:#fff; border:1px solid var(--line); padding:18px; margin-bottom:16px; }
-  .card__top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
-  .card__name { font-size:19px; margin:0; }
-  .card__price { font-size:19px; white-space:nowrap; }
-  .card p { margin:8px 0 12px; font-size:16px; color:#4c5359; }
-  .card ul { margin:0 0 14px; padding-left:20px; }
-  .card li { font-size:15px; margin-bottom:4px; }
-  .btn { display:block; text-align:center; text-decoration:none; padding:14px 18px;
-         font-size:17px; background:var(--dark); color:#fff; }
-  .btn--light { background:transparent; color:var(--dark); border:2px solid var(--dark); }
-  .badge { display:inline-block; background:var(--terra); color:#fff; font-size:12px;
-           letter-spacing:.06em; text-transform:uppercase; padding:4px 8px; margin-bottom:8px; }
-  .note { font-size:14px; color:#6a7076; margin-top:10px; }
-  footer { margin-top:30px; font-size:14px; color:#6a7076; }
-  .row { display:flex; gap:10px; flex-wrap:wrap; }
-  .row .btn { flex:1 1 200px; }
-  @media (max-width:480px){ h1{font-size:25px} .card__top{flex-direction:column;gap:4px} }
+  .wrap { max-width:820px; margin:0 auto; padding:0 20px 64px; }
+  .hero { position:relative; margin:0 -20px 0; }
+  .hero img { width:100%; height:auto; display:block; }
+  .hero::after { content:""; position:absolute; inset:0;
+                 background:linear-gradient(180deg, rgba(20,24,28,.25) 0%, rgba(20,24,28,.55) 55%, rgba(20,24,28,.96) 100%); }
+  .hero__text { position:absolute; left:20px; right:20px; bottom:16px; z-index:2; }
+  .tag { display:inline-block; background:var(--accent); color:#14181C; font-size:12px;
+         letter-spacing:.08em; text-transform:uppercase; padding:5px 10px; font-family:Verdana,sans-serif; }
+  h1 { font-size:34px; line-height:1.16; margin:12px 0 6px; }
+  .hero__sub { font-size:17px; color:var(--muted); margin:0; }
+  h2 { font-size:21px; margin:34px 0 12px; }
+  .grid { display:grid; gap:16px; }
+  @media (min-width:640px){ .grid { grid-template-columns:1fr 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); padding:20px; display:flex; flex-direction:column; }
+  .card h3 { font-size:19px; margin:0 0 4px; }
+  .price { font-size:24px; color:var(--accent); margin:0 0 10px; }
+  .card p { font-size:15px; color:var(--muted); margin:0 0 14px; }
+  .card ul { margin:0 0 16px; padding-left:18px; }
+  .card li { font-size:14px; color:var(--muted); margin-bottom:4px; }
+  .btn { display:block; text-align:center; text-decoration:none; padding:14px 18px; font-size:16px;
+         background:var(--accent); color:#14181C; margin-top:auto; }
+  .btn--ghost { background:transparent; color:var(--text); border:2px solid var(--line); margin-top:10px; }
+  .steps { border-top:1px solid var(--line); margin-top:34px; padding-top:22px; }
+  .steps ol { padding-left:20px; margin:0; }
+  .steps li { font-size:16px; margin-bottom:8px; }
+  footer { margin-top:34px; font-size:13px; color:var(--muted); border-top:1px solid var(--line); padding-top:18px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">Щенок: первый месяц</div>
-  <h1>Материалы для первой недели с щенком</h1>
-  <p class="sub">Два товара: бесплатный чек-лист и гайд на 20 страниц. Всё про быт, режим и поведение.</p>
 
-  <h2>Каталог</h2>
-
-  <div class="card">
-    <span class="badge">Бесплатно</span>
-    <div class="card__top">
-      <h3 class="card__name">Чек-лист первой недели</h3>
-      <div class="card__price">0 ₽</div>
+  <div class="hero">
+    <img src="hero.jpg" alt="Щенок на тёмном фоне">
+    <div class="hero__text">
+      <span class="tag">Первый месяц</span>
+      <h1>Первый месяц со щенком</h1>
+      <p class="hero__sub">Гайд на 20 страниц и бесплатный чек-лист первой недели</p>
     </div>
-    <p>Три страницы: покупки до приезда, первая ночь, корм, туалет, вопросы врачу.</p>
-    <div class="row">
+  </div>
+
+  <h2>Что можно забрать</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Чек-лист первой недели</h3>
+      <p class="price">0 ₽</p>
+      <p>Три страницы для первых дней: что купить, как пройдёт первая ночь, сколько раз кормить.</p>
+      <ul>
+        <li>покупки до приезда</li>
+        <li>первая ночь по шагам</li>
+        <li>корм, туалет, вопросы врачу</li>
+      </ul>
       <a class="btn" href="checklist.pdf" download>Скачать PDF</a>
-      <a class="btn btn--light" href="checklist-page.html">Что внутри</a>
+      <a class="btn btn--ghost" href="checklist-page.html">Что внутри</a>
     </div>
-  </div>
 
-  <div class="card">
-    <span class="badge">Гайд</span>
-    <div class="card__top">
-      <h3 class="card__name">Первые 30 дней со щенком</h3>
-      <div class="card__price">14 $ · 45 BYN</div>
-    </div>
-    <p>20 страниц: расписание дня для 8–10 недель и для 3–4 месяцев, корм, сон, туалет, прививки,
-       социализация, разбор «что делать если».</p>
-    <ul>
-      <li>Две таблицы расписания под разный возраст.</li>
-      <li>Список вопросов врачу на первом приёме.</li>
-      <li>Красные флаги: когда не ждать утра.</li>
-    </ul>
-    <div class="row">
+    <div class="card">
+      <h3>Первые 30 дней со щенком</h3>
+      <p class="price">14 $ · 45 BYN</p>
+      <p>20 страниц: режим, корм, сон, туалет, прививки, социализация и разбор «что делать если».</p>
+      <ul>
+        <li>два расписания: 8–10 недель и 3–4 месяца</li>
+        <li>список вопросов врачу</li>
+        <li>красные флаги: когда ехать в клинику</li>
+      </ul>
       <a class="btn" href="guide.html">Купить гайд</a>
-      <a class="btn btn--light" href="https://www.instagram.com/shchenok_30_dney/" target="_blank" rel="noopener">Спросить в личке</a>
+      <a class="btn btn--ghost" href="https://www.instagram.com/shchenok_30_dney/" target="_blank" rel="noopener">Спросить в личке</a>
     </div>
-    <p class="note">Файл PDF, оплата картой или переводом, чек по запросу. Если не подошло — вернём деньги.</p>
   </div>
 
-  <h2>Как это работает</h2>
-  <p>Нажмите «Купить гайд» — откроется страница с описанием и формой заказа. После оплаты файл
-     приходит в личку Instagram или на почту, как удобнее.</p>
-  <p>Бесплатный чек-лист скачивается сразу, без регистрации.</p>
+  <div class="steps">
+    <h2>Как это работает</h2>
+    <ol>
+      <li>Слово «щенок» в комментарии под любым роликом — чек-лист приходит в личку.</li>
+      <li>Гайд открывается по кнопке «Купить гайд»: описание, оплата, файл.</li>
+      <li>Файл приходит сразу после оплаты. Не подошло — вернём деньги.</li>
+    </ol>
+  </div>
 
   <footer>
-    Материалы справочные: они про быт и поведение, а не про лечение. При проблемах со здоровьем
-    обращайтесь в ветеринарную клинику.<br>
-    Продавец: частное лицо, Беларусь. Вопросы: личные сообщения Instagram.
+    Материалы справочные: про быт, режим и поведение. При проблемах со здоровьем обращайтесь
+    в ветеринарную клинику.<br>
+    Продавец: частное лицо, Беларусь. Вопросы — личные сообщения Instagram.
   </footer>
 </div>
 </body>
